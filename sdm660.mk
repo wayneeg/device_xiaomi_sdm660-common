@@ -24,6 +24,12 @@
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
 
+# Dirac
+$(call inherit-product-if-exists, vendor/dirac/dirac.mk)
+
+# MiuiCamera
+$(call inherit-product, vendor/MiuiCamera/config.mk)
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
@@ -200,6 +206,10 @@ PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
     vendor.display.config@1.1 \
     vendor.display.config@1.1_vendor
+
+# Device-specific Settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
 
 # Doze
 PRODUCT_PACKAGES += \
