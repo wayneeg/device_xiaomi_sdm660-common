@@ -150,7 +150,7 @@ PRODUCT_BOOT_JARS += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    MiuiCamera
 
 PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.4 \
