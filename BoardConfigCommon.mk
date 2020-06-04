@@ -26,6 +26,8 @@ COMMON_PATH := device/xiaomi/sdm660-common
 
 BOARD_VENDOR := xiaomi
 
+BUILD_BROKEN_DUP_RULES := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm660
 TARGET_NO_BOOTLOADER := true
@@ -70,6 +72,9 @@ BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
+
+# Turn off SoftAP MAC randomization
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
