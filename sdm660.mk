@@ -27,9 +27,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product-if-exists, build/target/product/embedded.mk)
 
 # Enable updating of APEXes
-ifeq ($(ENABLE_APEX), true)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-endif
 
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
@@ -517,11 +515,11 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils \
     qti_telephony_utils.xml \
     rild \
-    telephony-ext
+#    telephony-ext
 
 # RIL JAR
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+#PRODUCT_BOOT_JARS += \
+#    telephony-ext
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -621,8 +619,8 @@ PRODUCT_PACKAGES += \
     libnl
 
 # WiFi Display JAR
-PRODUCT_BOOT_JARS += \
-    WfdCommon
+#PRODUCT_BOOT_JARS += \
+#    WfdCommon
 
 # XiaomiParts
 #PRODUCT_PACKAGES += \
