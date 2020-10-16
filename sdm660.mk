@@ -623,5 +623,5 @@ PRODUCT_PACKAGES += \
 #    WfdCommon
 
 # XiaomiParts
-#PRODUCT_PACKAGES += \
-#   XiaomiParts
+PRODUCT_PACKAGES += \
+   XiaomiParts
