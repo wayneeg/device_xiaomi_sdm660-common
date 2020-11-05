@@ -53,22 +53,6 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
                 Settings.Secure.getInt(context.getContentResolver(),
                         DeviceSettings.PERF_YELLOW_TORCH_BRIGHTNESS, 100));
 
-        //Vibration
-	FileUtils.setValue(DeviceSettings.PREF_VIBRATION_PATH, Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_VIBRATION_OVERRIDE, 0));
-	FileUtils.setValue(DeviceSettings.VIBRATION_SYSTEM_PATH, Settings.Secure.getInt(
-                context.getContentResolver(), DeviceSettings.PREF_VIBRATION_SYSTEM_STRENGTH, 80) / 100.0 * (DeviceSettings.MAX_VIBRATION - DeviceSettings.MIN_VIBRATION) + DeviceSettings.MIN_VIBRATION);
-	FileUtils.setValue(DeviceSettings.VIBRATION_NOTIFICATION_PATH, Settings.Secure.getInt(
-                context.getContentResolver(), DeviceSettings.PREF_VIBRATION_NOTIFICATION_STRENGTH, 80) / 100.0 * (DeviceSettings.MAX_VIBRATION - DeviceSettings.MIN_VIBRATION) + DeviceSettings.MIN_VIBRATION);
-        FileUtils.setValue(DeviceSettings.VIBRATION_CALL_PATH, Settings.Secure.getInt(
-                context.getContentResolver(), DeviceSettings.PREF_VIBRATION_CALL_STRENGTH, 80) / 100.0 * (DeviceSettings.MAX_VIBRATION - DeviceSettings.MIN_VIBRATION) + DeviceSettings.MIN_VIBRATION);
-
-	//Dirac
-        context.startService(new Intent(context, DiracService.class));
-        context.startService(new Intent(context, SensorsDozeService.class));
-        boolean enabled = sharedPrefs.getBoolean(DeviceSettings.PREF_KEY_FPS_INFO, false);
-        if (enabled) {
-            context.startService(new Intent(context, FPSInfoService.class));
-        }
+        
     }
 }
