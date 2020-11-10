@@ -211,7 +211,7 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.9_vendor
     
 #Density
-TARGET_SCREEN_DENSITY := 400
+TARGET_SCREEN_DENSITY := 420
 
 # Doze
 PRODUCT_PACKAGES += \
