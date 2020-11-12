@@ -32,3 +32,8 @@ type sysfs_torch, sysfs_type, fs_type;
 type sysfs_fastcharge, sysfs_type, fs_type;
 type sysfs_headgain, sysfs_type, fs_type;
 type sysfs_micgain, sysfs_type, fs_type;
+
+# Temp
+type tmp_root_mount_file, file_type;
+
+

@@ -22,15 +22,8 @@
 # Hall Switch
 /sys/module/hall/parameters(/.*)?               u:object_r:hall_dev:s0
 
-# Firmware
-/firmware                                                     u:object_r:firmware_file:s0
-/bt_firmware                                                  u:object_r:bt_firmware_file:s0
-
 # Amplifier
 /(vendor|system/vendor)/bin/tinymix                           u:object_r:vendor_tinyalsa_exec:s0
-
-# HVDCP
-/sys/devices(/platform)?/soc/[a-z0-9]+\.i2c/i2c-[0-9]+/[0-9]+-[a-z0-9]+/[a-z0-9]+\.i2c:qcom,[a-z0-9]+@[a-z0-9]:qcom,smb[a-z0-9]+-parallel-slave@[0-9]+/power_supply/parallel(/.*)? u:object_r:sysfs_usb_supply:s0
 
 # HW Info
 /sys/devices/platform/HardwareInfo(/.*)? u:object_r:sysfs_info:s0
@@ -40,12 +33,13 @@
 /dev/lirc0                                      u:object_r:spidev_device:s0
 /dev/spidev7.1                                  u:object_r:spidev_device:s0
 
+# Temp
+/bt_firmware(/.*)?  u:object_r:tmp_root_mount_file:s0 
+/firmware(/.*)?  u:object_r:tmp_root_mount_file:s0 
+/dsp(/.*)?  u:object_r:tmp_root_mount_file:s0
+
 # Kcal
 /sys/devices/platform/kcal_ctrl.0(/.*)?         u:object_r:kcal_dev:s0
-
-# Notification LED
-/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d000/leds/white/max_brightness  u:object_r:sysfs_graphics:s0
-/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d000/leds/white/brightness  u:object_r:sysfs_graphics:s0
 
 # Light HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm660                     u:object_r:hal_light_default_exec:s0
@@ -54,7 +48,6 @@
 /(vendor|system/vendor)/bin/mlipayd@1.1         u:object_r:hal_mlipay_default_exec:s0
 
 # Persist
-/persist/PRSensorData\.txt                      u:object_r:sensors_persist_file:s0
 /persist(/.*)?                                  u:object_r:mnt_vendor_file:s0
 
 # RTC
@@ -74,9 +67,6 @@
 
 # Thermal
 /data/vendor/thermal(/.*)?                      u:object_r:thermal_data_file:s0
-
-# Video4linux sysfs nodes
-/sys/devices/soc/caa0000\.qcom,jpeg/video4linux/video1(/.*)?   u:object_r:sysfs_graphics:s0
 
 # USB
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.xiaomi_sdm660       u:object_r:hal_usb_default_exec:s0
